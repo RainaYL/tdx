@@ -173,6 +173,10 @@ impl Launcher {
         Ok(TdxCapabilities {
             attributes: AttributesFlags::from_bits_truncate(cpuid_entries[0].supported_attrs),
             xfam: XFAMFlags::from_bits_truncate(cpuid_entries[0].supported_xfam),
+            kernel_tdvmcallinfo_1_r11: cpuid_entries[0].reserved[0],
+	        user_tdvmcallinfo_1_r11: cpuid_entries[0].reserved[1],
+	        kernel_tdvmcallinfo_1_r12: cpuid_entries[0].reserved[2],
+	        user_tdvmcallinfo_1_r12: cpuid_entries[0].reserved[3],
             cpuid_configs: unsafe {
                 cpuid_entries[0]
                     .cpuid
@@ -439,5 +443,9 @@ bitflags! {
 pub struct TdxCapabilities {
     pub attributes: AttributesFlags,
     pub xfam: XFAMFlags,
+    pub kernel_tdvmcallinfo_1_r11: u64,
+	pub user_tdvmcallinfo_1_r11: u64,
+	pub kernel_tdvmcallinfo_1_r12: u64,
+	pub user_tdvmcallinfo_1_r12: u64,
     pub cpuid_configs: Vec<kvm_bindings::kvm_cpuid_entry2>,
 }
