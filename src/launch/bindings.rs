@@ -24,7 +24,11 @@ const _: () = {
 pub struct kvm_tdx_capabilities {
     pub supported_attrs: u64,
     pub supported_xfam: u64,
-    pub reserved: [u64; 254usize],
+    pub kernel_tdvmcallinfo_1_r11: u64,
+    pub user_tdvmcallinfo_1_r11: u64,
+    pub kernel_tdvmcallinfo_1_r12: u64,
+    pub user_tdvmcallinfo_1_r12: u64,
+    pub reserved: [u64; 250usize],
     pub cpuid: kvm_bindings::kvm_cpuid2,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
@@ -35,8 +39,16 @@ const _: () = {
         [::std::mem::offset_of!(kvm_tdx_capabilities, supported_attrs) - 0usize];
     ["Offset of field: kvm_tdx_capabilities::supported_xfam"]
         [::std::mem::offset_of!(kvm_tdx_capabilities, supported_xfam) - 8usize];
+    ["Offset of field: kvm_tdx_capabilities::kernel_tdvmcallinfo_1_r11"]
+        [::std::mem::offset_of!(kvm_tdx_capabilities, kernel_tdvmcallinfo_1_r11) - 16usize];
+    ["Offset of field: kvm_tdx_capabilities::user_tdvmcallinfo_1_r11"]
+        [::std::mem::offset_of!(kvm_tdx_capabilities, user_tdvmcallinfo_1_r11) - 24usize];
+    ["Offset of field: kvm_tdx_capabilities::kernel_tdvmcallinfo_1_r12"]
+        [::std::mem::offset_of!(kvm_tdx_capabilities, kernel_tdvmcallinfo_1_r12) - 32usize];
+    ["Offset of field: kvm_tdx_capabilities::user_tdvmcallinfo_1_r12"]
+        [::std::mem::offset_of!(kvm_tdx_capabilities, user_tdvmcallinfo_1_r12) - 40usize];
     ["Offset of field: kvm_tdx_capabilities::reserved"]
-        [::std::mem::offset_of!(kvm_tdx_capabilities, reserved) - 16usize];
+        [::std::mem::offset_of!(kvm_tdx_capabilities, reserved) - 48usize];
     ["Offset of field: kvm_tdx_capabilities::cpuid"]
         [::std::mem::offset_of!(kvm_tdx_capabilities, cpuid) - 2048usize];
 };
