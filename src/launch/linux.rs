@@ -51,7 +51,11 @@ impl Default for super::bindings::kvm_tdx_capabilities {
         Self {
             supported_attrs: 0,
             supported_xfam: 0,
-            reserved: [0; 254],
+            kernel_tdvmcallinfo_1_r11: 0,
+            user_tdvmcallinfo_1_r11: 0,
+            kernel_tdvmcallinfo_1_r12: 0,
+            user_tdvmcallinfo_1_r12: 0,
+            reserved: [0; 250],
             cpuid: kvm_bindings::kvm_cpuid2::default(),
         }
     }
