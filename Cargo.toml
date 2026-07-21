@@ -15,8 +15,8 @@ rust-version = "1.86"
 [dependencies]
 bitflags = "2.4.2"
 iocuddle = "0.1.1"
-kvm-bindings = { version = "0.14.0", features = ["fam-wrappers"] }
-kvm-ioctls = "0.24.0"
+kvm-bindings = { git = "https://github.com/RainaYL/kvm", branch = "tdx-v2", features = ["fam-wrappers"] }
+kvm-ioctls = { git = "https://github.com/RainaYL/kvm", branch = "tdx-v2" }
 libc = "0.2.155"
 uuid = "1.8.0"
 vmm-sys-util = "0.15.0"
